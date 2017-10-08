@@ -40,6 +40,15 @@ p, address {
     margin-bottom: 20px;
 }
 
+.download-button {
+    padding: 50px 0 0 5px; 
+    height: 140px; 
+    width: 150px;
+    position:fixed;
+    right:0;
+    top:0
+}
+
 a.company:hover, a.company:focus  {
     color:#0080FF;
 }
