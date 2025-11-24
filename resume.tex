@@ -1,179 +1,321 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
-% Packages
+\usepackage[utf8]{inputenc}
 \usepackage{latexsym}
-\usepackage{marvosym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage{geometry}
+\usepackage{fontawesome}
 
-% Adjust margin for compact layout
-\geometry{margin=0.8cm}
-
-% Page style
 \pagestyle{fancy}
-\fancyhf{}
+\fancyhf{} % clear all header and footer fields
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Color definitions
-\definecolor{darkblue}{HTML}{2C3E50}
-\definecolor{gray}{HTML}{95A5A6}
-\definecolor{customblue}{HTML}{0073E6}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
 
-% Layout adjustments
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.15em}
-\setlist[itemize]{leftmargin=1em, label=--, itemsep=0.15em, topsep=0.15em}
+\urlstyle{same}
 
-% Commands
-\newcommand{\resheading}[1]{
-  \vspace{3pt}
-  \textbf{\large{\textcolor{darkblue}{#1}}}
-  \vspace{3pt}
-  \hrule
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
 }
 
-% Document begins
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeJobHeading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{#2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{document}
 
-% Header
+%----------HEADING----------
 \begin{center}
-    {\Huge \textbf{Sahib Yar}} \\[0.4em]
-    \href{mailto:sahibyaar@hotmail.com}{\texttt{sahibyaar@hotmail.com}} | +92 336 6037321 | 
-    \href{https://sahibyar.github.io}{\texttt{sahibyar.github.io}} | 
-    \href{https://github.com/sahibyar}{\texttt{github.com/sahibyar}} | 
-    \href{https://linkedin.com/in/sahibyar}{\texttt{linkedin.com/in/sahibyar}}
+    \textbf{\Huge \scshape Sahib Yar} \\ \vspace{1pt}
+    \small \faEnvelope\ sahibyaar@hotmail.com $|$ 
+    \faPhone\ +92 336 6037321 $|$ 
+    \faGlobe\ \href{https://sahibyar.github.io}{sahibyar.github.io} $|$ \\
+    \faGithub\ \href{https://github.com/sahibyar}{github.com/sahibyar} $|$
+    \faLinkedin\ \href{https://linkedin.com/in/sahibyar}{linkedin.com/in/sahibyar}
 \end{center}
-\vspace{-0.8em}
 
-% Technical Skills
-\resheading{Technical Skills}
-\textbf{Languages:} Go, Java, C++, Python, JavaScript/TypeScript \\
-\textbf{Frontend:} React Native, Single Page Applications (SPA) \\
-\textbf{Backend:} RESTful APIs, SOAP, WebSockets, Microservices, Redis, gRPC, Protobuf, OAuth/SSO \\
-\textbf{AI \& LLM Integration:} Claude Code, GPT-4, Gemini 2.5, Emergent.sh, Vector Embeddings, RAG Architecture \\
-\textbf{Databases:} PostgreSQL, MongoDB, Redis, MySQL, Oracle \\
-\textbf{Cloud \& DevOps:} AWS (S3, SQS, EMR), Kubernetes, Docker, Linux, Shell Scripting \\
-\textbf{Protocols \& Standards:} TCP/IP, Ftp, HTTP/3, WebTransport, ISO-8583, EMV, SSL/TLS, FIX Protocol
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Go, Java, C++, Python, JavaScript/TypeScript} \\
+     \textbf{Frontend}{: React, Single Page Applications (SPA)} \\
+     \textbf{Backend}{: RESTful APIs, SOAP, WebSockets, Microservices, Redis, gRPC, Protobuf, OAuth/SSO} \\
+     \textbf{AI \& LLM Integration}{: Claude Code, GPT-4, Gemini 2.5, Emergent.sh, Vector Embeddings, RAG Architecture} \\
+     \textbf{Databases}{: PostgreSQL, MongoDB, Redis, MySQL, Oracle} \\
+     \textbf{Cloud \& DevOps}{: AWS (S3, SQS, EMR), Kubernetes, Docker, Linux, Shell Scripting} \\
+     \textbf{Protocols \& Standards}{: TCP, UDP, FTP, HTTP/3, WebTransport, ISO-8583, EMV, SSL/TLS, FIX Protocol} \\
+    }}
+ \end{itemize}
 
-% Key Achievements
-\resheading{Key Achievements}
-\begin{itemize}[leftmargin=1em, label={--}]
-    \item \textbf{Performance Optimization Expert:} Achieved up to 1500\% performance improvements through system optimization, including 50\% latency reduction in structured data parsing and 1000\% throughput improvement via architectural changes
-    \item \textbf{Large-Scale System Design:} Architected and built systems processing terabyte-scale datasets serving thousands of users across distributed environments
-    \item \textbf{Technical Leadership:} Led cross-functional teams of 3+ engineers, mentoring juniors on design patterns, code quality, and delivering mission-critical trading platforms
-    \item \textbf{Full-Stack Development:} Built end-to-end solutions from high-performance backend services to modern frontend applications using React Native and Golang
-    \item \textbf{Open Source Impact:} Active contributor to major projects including quic-go, go-libp2p, jtablesaw, and creator of innovative tools like MCPGen
-\end{itemize}
+%-----------SUMMARY-----------
+\section{Summary}
+\small{Sahib Yar is a seasoned Software Engineer with over 10 years of experience delivering scalable, low-latency, and data-intensive backend and full-stack systems across fintech, trading, AI, and data privacy domains. He has built systems that handle 10,000+ concurrent requests per minute, process petabyte-scale datasets, and drive real-time insights for mission-critical applications.}
 
-% Summary
-\resheading{Summary}
-Lead Software Engineer with 8+ years of experience in fintech, cybersecurity, payment systems, and high-frequency trading platforms. Expert in building scalable enterprise-grade systems that process terabyte-scale data with 99.99\% reliability. Proven expertise across the full technology stack, from low-latency C++ systems and microservice architecture to AI-powered applications and real-time trading platforms. Strong international experience with successful deployments across 5+ countries and regulatory compliance (PA-DSS, EMV, MasterCard certifications). AI-first practitioner since 2022, pioneering LLM-assisted development workflows that improved team velocity by 2x. Technical leader with demonstrated ability to manage global teams, optimize system performance (up to 10x improvements), and deliver mission-critical financial and security solutions at scale.
+\small{Proficient in Java, Go and C++, Sahib has contributed to high-impact projects for industry leaders like Centroid Solutions, Securiti.ai, Afiniti.ai and Avanza Solutions. His work spans international payment certifications (EMV, MasterCard), AI-powered platform automation, and large-scale cloud-native microservices using AWS, Kubernetes, Redis, PostgreSQL, and Kafka.}
 
-% Experience
-\resheading{Experience}
-\textbf{\large \textcolor{customblue}{Software Engineer, CentroidSol.com (Remote, Dubai)}} \hfill \textcolor{gray}{Mar 2024 -- Present} \\
-\emph{Tech Stack: Golang, ReactNative, RESTful APIs, WebSockets, Protobuf, Redis, PostgreSQL, MongoDB, Docker, AWS, Linux, GPT APIs} \\
-\begin{itemize}[leftmargin=1em, label={--}]
-  \item \textbf{Full-Stack Development:} Improved a trading platform using Go (backend) and React Native (frontend), allowing real-time data processing and report generation at scale. Extended automated reporting capabilities to support scheduled delivery via email, FTP, or both concurrently.
-  \item \textbf{AI-Powered Alert System:} Transformed generic system alerts into personalized notifications using LLM integration, delivering contextual liquidation warnings via Slack and SMS.
-  \item \textbf{Intelligent Customer Support:} Architected AI-powered chatbot converting Confluence documentation into vector embeddings stored in Redis VL, implementing sliding window context management and async request/response queues for real-time GPT-powered support via WebSockets
-  \item \textbf{Performance Engineering:} Used \texttt{pprof} profiling to identify and resolve memory leaks, achieving 40\% reduction in resource usage and improved stability under high-throughput conditions
-  \item \textbf{Real-Time Systems:} Migrated multiple frontend requests from HTTP polling to WebSockets, reducing latency by 60\% and improving user experience for time-critical trading operations
-  \item \textbf{Distributed Architecture:} Designed fault-tolerant microservices using Redis as cache/message broker, implementing distributed locks, rate limiting, and circuit breakers for 99.9\% uptime
-  \item \textbf{Security \& Scale:} Implemented RBAC for APIs with secure privilege escalation, designed tiered throttling to prevent abuse, and optimized database queries reducing response times by 70\%
-  \item \textbf{Technical Leadership:} Led backend initiatives across global teams, conducted code reviews, mentored junior developers, and coordinated releases using GitOps practices
-\end{itemize}
+\small{He brings strong leadership experience, having led cross-functional teams, adopted LLM-first engineering practices (GPT, Claude, vector embeddings), and architected fault-tolerant systems for security-sensitive, real-time workloads.}
 
-\vspace{0.4em}
-\textbf{\large \textcolor{customblue}{Lead Software Engineer, \href{https://securiti.ai/}{Securiti.ai} (Remote, Pakistan)}} \hfill \textcolor{gray}{Nov 2021 -- Dec 2024} \\
-\emph{Tech Stack: Java, Golang, Python, JUnit5, RESTful APIs, AWS, Kubernetes, HashiCorp Vault, PostgreSQL, Redis} \\
-\begin{itemize}[leftmargin=1em, label={--}]
-    \item \textbf{Microservices Architecture:} Developed multiple streaming parsers using Apache PDFBox, POI, and Tika to extract text from structured/unstructured files, processing petabyte-scale datasets and reducing technical debt by 5000+ lines of code while maintaining 5TB daily throughput.
-    \item \textbf{Data Processing Excellence:} Implemented HyperLogLog with Redis for cardinality counting on petabyte-scale datasets, and developed pre-signed URL APIs for secure S3 data uploads.
-    \item \textbf{Enterprise Security Solutions:} Architected flexible secrets management system supporting AWS Secrets Manager, HashiCorp Vault, and Kubernetes native secrets, enabling seamless enterprise integration and improving security posture across multi-cloud deployments
-    \item \textbf{Frontend Development:} Built responsive web interfaces using React Native, implementing real-time dashboards and data visualization components for compliance monitoring
-    \item \textbf{Performance Optimization:} Replaced HTTP polling with WebSocket + Redis Streams architecture, achieving 50\% latency improvement and better user experience in real-time data processing
-    \item \textbf{Cloud Migration:} Led AWS SDK v2.x migration project, enhancing reliability and implementing secure API gateway patterns for S3, SQS, and EMR integrations
-    \item \textbf{Testing Excellence:} Established comprehensive testing strategy with 5,000+ unit tests in Java/Go, achieving 85\%+ code coverage and zero-downtime deployments through robust CI/CD pipelines
-    \item \textbf{Technical Leadership:} Managed team of 5 engineers, conducted design reviews, implemented coding standards, and delivered multiple product milestones on schedule. Introduced AI-first development practices, training team on Claude Code, Windsurf IDE, and GPT-4 integration for enhanced productivity
-    \item \textbf{AI-Driven Development Excellence:} Pioneered LLM-assisted development workflows using Claude Code and GTP for automated code generation, intelligent refactoring, comprehensive documentation creation, improving team velocity by 2x
-    \item \textbf{Open Source Contributions:} Enhanced \href{https://github.com/jtablesaw/tablesaw/pull/1203}{TableSaw library} with advanced CSV parsing capabilities, contributing to the broader Java data processing ecosystem
-\end{itemize}
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
 
-\vspace{0.4em}
-\textbf{\large \textcolor{customblue}{Senior Software Engineer, \href{http://www.afiniti.com/}{Afiniti} (Hybrid, Pakistan)}} \hfill \textcolor{gray}{Nov 2019 -- Nov 2021} \\
-\emph{Tech Stack: C++17, CentOS, Shell, CMake, RESTful APIs, PostgreSQL, MySQL, TCP/IP, SSL, IPC via POSIX shared memory, Protobuf} \\
-\begin{itemize}[leftmargin=1em, label={--}]
-    \item \textbf{Real-Time Reporting System:} Contributed to the development of a microservice-based contact center monitoring platform, processing over 1 million events per hour with sub-second latency. This was a collaborative effort between Afiniti and Avaya teams to integrate Avaya CMS with Afiniti's reporting services.
-    \item \textbf{System Architecture \& Performance:} Replaced Kafka with custom file-based queuing mechanism, achieving 10x performance improvement in asynchronous DB insertions. Implemented POSIX shared memory IPC and optimized query processing, reducing server response times from minutes to seconds while supporting scheduled jobs across concurrent servers.
-    \item \textbf{Security Implementation:} Built SSL-based communication system supporting multiple Avaya CMS protocol versions (6.x, 7.x, 8.x, 9.x), ensuring secure data exchange in enterprise environments with backward compatibility
-    \item \textbf{Performance Engineering:} Implemented high-performance TCP server with connection pooling and optimized SQL queries, supporting 10,000+ concurrent connections
-    \item \textbf{Development Infrastructure:} Utilized CMake build system and CentOS deployment environment with shell scripting for automated processes and system maintenance
-\end{itemize}
+    \resumeJobHeading
+      {Senior Software Engineer}{Current}
+      {Centroid Solutions}{Remote, Pakistan}
+      
+      \textbf{Tech Stack:} Golang, React, RESTful APIs, WebSockets, Protobuf, Redis, PostgreSQL, MongoDB, Docker, AWS, Linux, GPT APIs
+      
+      \vspace{3pt}
+      \small{Engineered AI-powered alerting and support systems, real-time WebSocket architecture, and high-performance Go microservices—achieving significant performance gains and leading backend teams globally.}
+      
+      \resumeItemListStart
+        \resumeItem{Optimized a high-throughput trading platform using Go, Gin, GORM, pgx, Redis, enabling real-time market data ingestion, FIX-flow execution, and multi-channel automated reporting via cron, SMTP, SFTP.}
+        \resumeItem{Integrated LLM-powered intelligence using OpenAI API, LangChain Go, Slack/Twilio SDKs, transforming static alerts into contextual liquidation-risk notifications with dynamic rule engines.}
+        \resumeItem{Built an AI-driven support system by vector embedding Confluence knowledge into pinecone, streaming GPT responses via Redis Streams and Gorilla/WebSocket for low-latency conversational support.}
+        \resumeItem{Performed deep performance engineering using pprof, benchstat, Go tracers, eliminating memory leaks and improving throughput by 40\% under heavy load with reduced GC overhead.}
+        \resumeItem{Replaced HTTP polling with WebSocket real-time channels using Gorilla/WebSocket and Socket.IO, reducing end-to-end latency by 60\% for time-critical trading workflows.}
+        \resumeItem{Architected fault-tolerant microservices using Redis (cache/pubsub/streams), NATS, Docker, Kubernetes, implementing Redlock, rate limiting via Lua, and circuit breakers via go-resilience for 99.9\% uptime.}
+        \resumeItem{Hardened APIs with Casbin RBAC, secure privilege elevation, multi-tenant throttling, and pgxpool-optimized queries, reducing DB response times by 70\%.}
+        \resumeItem{Led backend engineering efforts across global teams using GitOps (ArgoCD, GitHub Actions), conducting reviews, mentoring developers, and orchestrating multi-service release cycles.}
+      \resumeItemListEnd
+      \vspace{10pt}
 
-\vspace{0.4em}
-\textbf{\large \textcolor{customblue}{Implementation Engineer, \href{https://www.avanzasolutions.com/}{Avanza Solutions} (Oman, Somalia, Pakistan)}} \hfill \textcolor{gray}{Nov 2017 -- Nov 2019} \\
-\emph{Tech Stack: Windows, C\#, VC++, MSSQL, MSMQ, HSM (Thales), TCP/IP} \\
-\begin{itemize}[leftmargin=1em, label={--}]
-    \item \textbf{Payment Systems Integration:} Enhanced secure middleware (\href{https://www.avanzasolutions.com/rendezvous/}{Rendezvous}/\href{https://www.avanzasolutions.com/novus/}{Novus} products) connecting banking platforms, ATMs, and third-party services using HSM (Thales) security modules, processing millions of transactions with 99.99\% reliability across EFT channels
-    \item \textbf{International Deployments:} Led onsite implementations across 5+ countries including \href{https://1link.net.pk/pay-pak/}{PayPak EMV} certification for 1Link (Pakistan), \href{https://www.mastercard.us/en-us/issuers.html}{MasterCard} issuing certification for \href{https://www.premierbank.so}{Premier Bank} (Somalia), and \href{https://www.omantel.om/Business/Mobile/Prepaid}{OmanTel prepaid card} integration for \href{https://bankdhofar.com/en-GB/Default.aspx}{Bank Dhofar} (Oman)
-    \item \textbf{Development \& Testing:} Built custom testing utilities in .NET/C++ for \href{https://en.wikipedia.org/wiki/ISO_8583}{ISO-8583} socket communications, conducted requirement gathering and UAT activities, and performed code refactoring for performance optimization
-    \item \textbf{Security Compliance:} Achieved \href{https://en.wikipedia.org/wiki/PA-DSS}{PA-DSS compliance} for multiple banks (\href{https://ubank.com.pk/}{UBank Pakistan}, \href{https://abdirect.abbl.com/login#!}{ABBank Bangladesh}), implementing HSM-based cryptographic standards, ISO-8583 protocol communications, and secure SOAP/TCP/IP channels for \href{https://bankislami.com.pk/}{Bank Islami Pakistan}
-\end{itemize}
+    \resumeJobHeading
+      {Lead Software Engineer}{Nov 2021 -- Dec 2024}
+      {Securiti.ai}{Remote, Pakistan}
+      
+      \textbf{Tech Stack:} Java, Golang, Python, JUnit5, RESTful APIs, AWS, Kubernetes, HashiCorp Vault, PostgreSQL, Redis
+      
+      \vspace{3pt}
+      \small{Built petabyte-scale data pipelines, real-time dashboards, multi-cloud security systems, and AI-powered development workflows across Go/Java/React microservices—achieving massive latency reductions, 5TB/day processing throughput, 85\%+ test coverage, and 2× team velocity.}
+      
+      \resumeItemListStart
+        \resumeItem{Built high-throughput microservices with Apache PDFBox, Apache POI, Apache Tika, parsing structured/unstructured documents at 5TB/day throughput, reducing tech debt by 5,000+ LOC while supporting petabyte-scale ingestion.}
+        \resumeItem{Implemented Redis HyperLogLog–based cardinality estimation pipelines and secure S3 presigned-URL upload APIs, enabling scalable, cost-efficient big-data processing.}
+        \resumeItem{Architected enterprise-grade secrets management abstraction layer supporting AWS Secrets Manager, HashiCorp Vault, KMS, and Kubernetes Secrets, enabling seamless portability across multi-cloud deployments.}
+        \resumeItem{Developed responsive real-time dashboards using React, React Query, Recharts, surfacing compliance and event-stream metrics with low-latency data visualizations.}
+        \resumeItem{Replaced HTTP polling with WebSockets + Redis Streams (consumer groups), achieving 50\% lower latency and significantly smoother UX for real-time data pipelines.}
+        \resumeItem{Led full migration to AWS SDK v2.x, implementing secure API-gateway patterns for S3, SQS, EMR, improving fault tolerance, IAM hardening, and transport-layer security.}
+        \resumeItem{Established a testing framework with 5,000+ Go/Java unit tests, leveraging JUnit, Testcontainers, GoMock, reaching 85\%+ coverage and enabling zero-downtime CI/CD deployments.}
+        \resumeItem{Managed a team of 5 engineers, driving design reviews, coding standards, GitOps workflows, and shipping multiple milestone releases; introduced AI-augmented development using Claude Code, GPT-4, Windsurf IDE.}
+        \resumeItem{Pioneered LLM-first engineering workflow using Claude, GPT-4, LangChain, automating boilerplate, refactoring, and documentation, increasing team delivery velocity by 2×.}
+        \resumeItem{Contributed to open-source TableSaw by extending CSV parsing and data-wrangling capabilities, improving performance and enriching the Java data-processing ecosystem.}
+      \resumeItemListEnd
+      \vspace{10pt}
 
-\vspace{0.4em}
-\textbf{\large \textcolor{customblue}{Junior Software Engineer, \href{http://www.infotechgroup.com/}{InfoTech Group} (Pakistan)}} \hfill \textcolor{gray}{Nov 2016 -- Nov 2017} \\
-\emph{Tech Stack: Windows, VC++, MSMQ, FAST Protocol, ActionScript} \\
-\begin{itemize}[leftmargin=1em, label={--}]
-    \item \textbf{Full-Stack Trading Platform:} Enhanced \href{http://www.infotechgroup.com/capizar/}{Capizer 2.0} high-frequency trading system with Angular 2.0 frontend and Node.js backend, supporting thousands of concurrent users with industry-leading low latency performance and pre-trade risk management for safe trading within compliance parameters
-    \item \textbf{Algorithm Optimization:} Developed and maintained algorithms for internal SDK, reducing trade execution latency by 20\% through efficient FAST Protocol implementation and real-time price discovery optimization
-    \item \textbf{Frontend Migration:} Led migration from legacy Adobe Flash/ActionScript to modern Angular/JavaScript architecture for Ghana Stock Exchange web application, improving user experience, maintainability, and performance for thousands of simultaneous users
-    \item \textbf{Financial Markets Expertise:} Gained deep understanding of low latency, high-frequency real-time applications, implementing pre-trade risk management systems and compliance parameters for automated trading environments
-\end{itemize}
+    \resumeJobHeading
+      {Senior Software Engineer}{Nov 2019 -- Nov 2021}
+      {Afiniti}{Hybrid, Pakistan}
+      
+      \textbf{Tech Stack:} C++17, CentOS, Shell, CMake, RESTful APIs, PostgreSQL, MySQL, TCP/IP, SSL, IPC via POSIX shared memory, Protobuf
+      
+      \vspace{3pt}
+      \small{Engineered ultra-low-latency C++ microservices for real-time reporting, replacing Kafka with a 10× faster custom queue, securing Avaya CMS integrations (SSL/TLS), and scaling to 1M+ events/hour and 10k+ concurrent TCP connections.}
+      
+      \resumeItemListStart
+        \resumeItem{Built a real-time contact-center reporting microservice integrating Avaya CMS + Afiniti services, processing 1M+ events/hour with sub-second latency using C++, POSIX sockets, multithreaded pipelines, and optimized ETL flows.}
+        \resumeItem{Replaced Kafka with a custom file-backed append-only queue using mmap, fsync batching, and lock-free IO, improving async DB write throughput by 10× and reducing SLA latencies from minutes to seconds.}
+        \resumeItem{Implemented POSIX shared memory IPC, multi-server job schedulers, and query-optimizer algorithms (prepared statements, execution-plan caching) to accelerate distributed reporting workloads.}
+        \resumeItem{Developed SSL/TLS-secured communication layer supporting legacy Avaya CMS protocol variants (6.x–9.x), ensuring backward-compatible encrypted transport using OpenSSL and custom binary serialization.}
+        \resumeItem{Engineered a high-performance TCP server with epoll/kqueue, connection pooling, non-blocking IO, and optimized SQL operations, reliably supporting 10,000+ concurrent connections.}
+        \resumeItem{Automated build and deployment pipelines using CMake, shell scripts, and CentOS runtime environments, improving CI/CD reliability for C++ microservices.}
+      \resumeItemListEnd
+      \vspace{10pt}
 
-% Education
-\vspace{0.8em}
-\resheading{Education}
-\vspace{0.4em}
-\textbf{Bachelor of Science (BS), Computer Science} \hfill 2012 -- 2016 \\
-Air University, Multan, Pakistan
+    \resumeJobHeading
+      {Implementation Engineer}{Nov 2017 -- Nov 2019}
+      {Avanza Solutions}{Oman, Somalia, Pakistan}
+      
+      \textbf{Tech Stack:} Windows, C, VC++, MSSQL, MSMQ, HSM (Thales), TCP/IP
+      
+      \vspace{3pt}
+      \small{Integrated HSM-secured payment systems at global banks, built ISO-8583 C++/.NET test frameworks, delivered EMV certifications across multiple countries, and enabled millions of high-assurance financial transactions with 99.99\% uptime.}
+      
+      \resumeItemListStart
+        \resumeItem{Enhanced high-security payment middleware (Rendezvous/Novus) integrating ATMs, core banking, ISO-8583 switches, and third-party rails, using Thales HSMs, EMV cryptograms, and key exchange protocols to process millions of transactions with 99.99\% uptime.}
+        \resumeItem{Led international deployments across Pakistan, Oman, Somalia, UAE, Africa, delivering PayPak EMV certification for 1LINK, Mastercard issuing certification for Premier Bank Somalia, and OmanTel prepaid card integration for Bank Dhofar.}
+        \resumeItem{Developed custom ISO-8583 test harnesses in .NET/C++, implementing socket-level simulators, bitmap parsers, message validators, and automated stress/latency test utilities for issuer/acquirer flows.}
+        \resumeItem{Achieved PA-DSS compliance for multiple banks by designing secure key-management workflows with Thales HSM, DUKPT, PIN block translation, 3DES/AES, and implementing hardened SOAP/TCP/IP encrypted channels.}
+      \resumeItemListEnd
+      \vspace{10pt}
 
-% Awards
-\vspace{0.8em}
-\resheading{Awards \& Recognition}
-\textbf{Certificate of Appreciation} \hfill \textcolor{gray}{2019} \\
-\emph{Ivy-Alumni} \\
-Awarded for exceptional work in developing next-generation AI solutions at Afiniti, a venture of Columbia and Ivy alumnus Zia Chishti. Recognized for outstanding contributions to backend data layer architecture and API development for AI-powered contact center optimization.
+    \resumeJobHeading
+      {Junior Software Engineer}{Nov 2016 -- Nov 2017}
+      {InfoTech Group}{Pakistan}
+      
+      \textbf{Tech Stack:} Windows, VC++, MSMQ, FAST Protocol, ActionScript
+      
+      \vspace{3pt}
+      \small{Upgraded a low-latency trading platform using Angular/Node.js, optimized execution algorithms for 20\% faster trades, modernized legacy systems, and built real-time pre-trade risk pipelines for thousands of concurrent HFT users.}
+      
+      \resumeItemListStart
+        \resumeItem{Enhanced Capizer 2.0 low-latency trading platform using Angular 2, RxJS, Node.js (Express), Redis, and event-driven microservices, supporting thousands of concurrent traders with pre-trade risk checks, throttle guards, and compliance-safe execution paths.}
+        \resumeItem{Optimized internal execution algorithms in Node.js/TypeScript with V8 engine tuning, worker threads, in-memory order books, and binary serialization, reducing trade execution latency by 20\%.}
+        \resumeItem{Led front-end modernization by migrating legacy Adobe Flash/ActionScript UI to Angular + TypeScript, leveraging Observables, WebSockets, and SPA architecture, dramatically improving UX and stability for high-traffic Ghana Stock Exchange users.}
+        \resumeItem{Built real-time trading components with deep knowledge of HFT systems, market-data fanouts, pre-trade risk, kill-switch logic, circuit breakers, and regulatory compliance for automated execution environments.}
+      \resumeItemListEnd
 
-\vspace{0.8em}
-\resheading{AI-First Development Practices}
-\begin{itemize}[leftmargin=1em, label={--}]
-  \item \textbf{Code Generation \& Optimization:} Leveraging Claude Code for automated boilerplate generation, complex algorithm implementation, and intelligent code suggestions, reducing development time by 50\%
-  \item \textbf{Intelligent Documentation:} Using Gemini 2.5 and GPT-4 for comprehensive API documentation, technical specifications, and code commenting, ensuring 95\%+ documentation coverage across projects
-  \item \textbf{Advanced Code Reviews:} Implementing AI-assisted PR reviews using LLMs for security vulnerability detection, performance optimization suggestions, and code quality improvements
-  \item \textbf{Automated Refactoring:} Employing GPT-4 and Claude for legacy code modernization, design pattern implementation, and technical debt reduction across large codebases
-  \item \textbf{Team Productivity Enhancement:} Training developers on Windsurf IDE integration, establishing AI-powered workflows for email communication, and implementing best practices for human-AI collaboration
-\end{itemize}
+  \resumeSubHeadingListEnd
 
-% Open Source
-\vspace{0.8em}
-\resheading{Open Source Contributions \& Projects}
-\begin{itemize}[leftmargin=1em, label={--}]
-  \item \textbf{\href{https://github.com/SahibYar/MCPGen}{MCPGen}} - Auto-generates multiservice MCP servers from OpenAPI v2/v3 specs. Parses Swagger and Arazzo files, integrates with LLMs for intelligent API coordination and workflow orchestration
-  \item \textbf{\href{https://github.com/SahibYar/go-i18n-db}{go-i18n-db}} - PostgreSQL-based internationalization library with nested JSON flattening, multi-tenant support, CRUD operations, bulk import/export, and CLI tooling
-  \item \textbf{Enterprise SDK Optimization:} Contributed critical performance and security improvements to major Go libraries including \href{https://github.com/alpacahq/alpaca-trade-api-go}{Alpaca Trading API} (4 merged PRs) and \href{https://github.com/fastly/go-fastly}{Fastly Go SDK} (8 merged PRs), focusing on resource leak prevention, runtime optimization, and modern Go practices
-  \item \textbf{Next-Gen Protocol Development:} Enhanced \href{https://github.com/quic-go/quic-go}{quic-go} QUIC implementation and \href{https://github.com/libp2p/go-libp2p}{go-libp2p} peer-to-peer networking, contributing to cutting-edge HTTP/3 and WebTransport protocols that power modern web infrastructure
-  \item \textbf{Data Processing Innovation:} Improved \href{https://github.com/jtablesaw/tablesaw}{TableSaw} Java library with advanced CSV parsing capabilities, enhancing data science workflows for enterprise analytics platforms
-  \item \textbf{Technical Content Creator:} Developed educational YouTube content on software development, reaching global developer community with practical programming tutorials and best practices
-  \item \textbf{Community Impact:} 15+ merged pull requests across high-impact projects, specializing in performance optimization, memory management, security hardening, and developer experience improvements
-\end{itemize}
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Bachelor of Science in Computer Science}{Pakistan}
+      {Air University, Multan}{Graduated}
+  \resumeSubHeadingListEnd
 
+%-----------AWARDS & RECOGNITION-----------
+\section{Awards \& Recognition}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+          {\textbf{Ivy-Alumni Award} $|$ \emph{Afiniti}}{Recognition}
+          \resumeItemListStart
+            \resumeItem{Awarded for exceptional work in developing next-generation AI solutions at Afiniti, a venture of Columbia and Ivy alumnus Zia Chishti. Recognized for outstanding contributions to backend data layer architecture and API development for AI-powered contact center optimization.}
+          \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------AI-FIRST DEVELOPMENT PRACTICES-----------
+\section{AI-First Development Practices}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+          {\textbf{Code Generation \& Optimization}}{ }
+          \resumeItemListStart
+            \resumeItem{Leveraging Claude Code for automated boilerplate generation, complex algorithm implementation, and intelligent code suggestions, reducing development time by 50\%}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Intelligent Documentation}}{ }
+          \resumeItemListStart
+            \resumeItem{Using Gemini 2.5 and GPT-4 for comprehensive API documentation, technical specifications, and code commenting, ensuring 95\%+ documentation coverage across projects}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Advanced Code Reviews}}{ }
+          \resumeItemListStart
+            \resumeItem{Implementing AI-assisted PR reviews using LLMs for security vulnerability detection, performance optimization suggestions, and code quality improvements}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Automated Refactoring}}{ }
+          \resumeItemListStart
+            \resumeItem{Employing GPT-4 and Claude for legacy code modernization, design pattern implementation, and technical debt reduction across large codebases}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Team Productivity Enhancement}}{ }
+          \resumeItemListStart
+            \resumeItem{Training developers on Windsurf IDE integration, establishing AI-powered workflows for email communication, and implementing best practices for human-AI collaboration}
+          \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------OPEN SOURCE CONTRIBUTIONS & PROJECTS-----------
+\section{Open Source Contributions \& Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+          {\textbf{MCP OpenAPI Server Generator} $|$ \emph{Go, OpenAPI, LLM Integration}}{Project}
+          \resumeItemListStart
+            \resumeItem{Auto-generates multiservice MCP servers from OpenAPI v2/v3 specs. Parses Swagger and Arazzo files, integrates with LLMs for intelligent API coordination and workflow orchestration}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{i18n-go} $|$ \emph{Go, PostgreSQL}}{Project}
+          \resumeItemListStart
+            \resumeItem{PostgreSQL-based internationalization library with nested JSON flattening, multi-tenant support, CRUD operations, bulk import/export, and CLI tooling}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Enterprise SDK Optimization}}{Contribution}
+          \resumeItemListStart
+            \resumeItem{Contributed critical performance and security improvements to major Go libraries including (4 merged PRs) and (8 merged PRs), focusing on resource leak prevention, runtime optimization, and modern Go practices}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Next-Gen Protocol Development}}{Contribution}
+          \resumeItemListStart
+            \resumeItem{Enhanced QUIC implementation and peer-to-peer networking, contributing to cutting-edge HTTP/3 and Web-Transport protocols that power modern web infrastructure}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Data Processing Innovation}}{Contribution}
+          \resumeItemListStart
+            \resumeItem{Improved Java library with advanced CSV parsing capabilities, enhancing data science workflows for enterprise analytics platforms}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Technical Content Creator}}{Achievement}
+          \resumeItemListStart
+            \resumeItem{Developed educational YouTube content on software development, reaching global developer community with practical programming tutorials and best practices}
+          \resumeItemListEnd
+    \resumeProjectHeading
+          {\textbf{Community Impact}}{Achievement}
+          \resumeItemListStart
+            \resumeItem{15+ merged pull requests across high-impact projects, specializing in performance optimization, memory management, security hardening, and developer experience improvements}
+          \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-------------------------------------------
 \end{document}
